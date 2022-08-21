@@ -1,7 +1,7 @@
 using System.Text;
 using System.Diagnostics;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 public static class LocalSystem
 {

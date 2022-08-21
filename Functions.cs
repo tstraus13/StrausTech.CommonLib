@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 /// <summary>
 /// Use tools or functions that can be used in any application

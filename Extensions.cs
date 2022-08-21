@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using Binaron.Serializer;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 public static class ExtensionMethods
 {

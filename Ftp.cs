@@ -1,6 +1,6 @@
 using FluentFTP;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 /// <summary>
 /// Class to use the FTP protocol to transfile files to

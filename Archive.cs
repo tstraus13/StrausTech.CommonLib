@@ -8,7 +8,7 @@ using ICSharpCode.SharpZipLib.BZip2;
 using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 /// <summary>
 /// Class to create file archives and/or compress files into
 /// Zip, Tar, Tar.Gz, Gz, and Bz2

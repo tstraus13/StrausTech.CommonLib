@@ -4,7 +4,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 /// <summary>
 /// Class to be used for the general encryption and

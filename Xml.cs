@@ -2,7 +2,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 /// <summary>
 /// A class for manipuling Xml data

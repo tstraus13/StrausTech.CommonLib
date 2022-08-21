@@ -1,6 +1,6 @@
 using Renci.SshNet;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 public class Ssh
 {

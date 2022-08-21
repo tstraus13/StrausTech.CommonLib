@@ -1,4 +1,4 @@
-namespace CommonLib.DataStructures
+namespace StrausTech.CommonLib.DataStructures
 {
     public class LinkedList<T>
     {

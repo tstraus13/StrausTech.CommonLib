@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
 using System.Net.Mime;
 
-namespace CommonLib;
+namespace StrausTech.CommonLib;
 
 /// <summary>
 /// Class for sending emails out in applications or
