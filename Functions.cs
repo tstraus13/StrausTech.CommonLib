@@ -84,4 +84,19 @@ public static class Tools
         else
             return null;
     }
+
+    public static int MaxSubArray(int[] values)
+    {
+        var max_cursor = values.Max();
+        var max_current = values.Max();
+
+        foreach (var value in values)
+        {
+            max_cursor = Math.Max(max_cursor, max_cursor + value);
+
+            max_current = Math.Max(max_current, max_cursor);
+        }
+
+        return max_current;
+    }
 }
