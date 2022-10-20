@@ -8,37 +8,6 @@ namespace StrausTech.CommonLib;
 public static class Tools
 {
     /// <summary>
-    /// Remote the trailing slave from a file path
-    /// </summary>
-    /// <param name="path">The file path</param>
-    /// <returns>The file path without a trailing slash if it contained one</returns>
-    public static string PathRemoveTrailingSlash(string path)
-    {
-        if (isWindows())
-            return path.Last() == '\\' ? path.Remove(path.LastIndexOf(@"\"), 1) : path;
-        else
-            return path.Last() == '/' ? path.Remove(path.LastIndexOf(@"/"), 1) : path;
-    }
-
-    public static string RemoveWhitespace(string text)
-    {
-        return new string(text.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="lines"></param>
-    /// <param name="numOfBlank"></param>
-    public static void AddBlankLine(List<string> lines, int numOfBlank = 1)
-    {
-        for (int i = 0; i <= numOfBlank; i++)
-        {
-            lines.Add("");
-        }
-    }
-
-    /// <summary>
     /// Detects if the system is Windows
     /// </summary>
     /// <returns>True if the it is a Windows System</returns>
@@ -65,24 +34,30 @@ public static class Tools
         return System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX);
     }
 
-    public static bool? isDevelopment()
+    public static bool isDevelopment()
     {
-        if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
-            return true;
-        else if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+        var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+        if (env.IsNullOrEmpty())
             return false;
-        else
-            return null;
+
+        if (env?.ToLower() == "development")
+            return true;
+
+        return false;
     }
 
-    public static bool? isProduction()
+    public static bool isProduction()
     {
-        if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+        var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+        if (env.IsNullOrEmpty())
             return false;
-        else if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+
+        if (env?.ToLower() == "production")
             return true;
-        else
-            return null;
+
+        return false;
     }
 
     public static int MaxSubArray(int[] values)

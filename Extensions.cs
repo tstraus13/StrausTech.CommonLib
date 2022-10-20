@@ -89,4 +89,22 @@ public static class ExtensionMethods
     {
         return obj != null && obj != default;
     }
+
+    /// <summary>
+    /// Remote the trailing slave from a file path
+    /// </summary>
+    /// <param name="path">The file path</param>
+    /// <returns>The file path without a trailing slash if it contained one</returns>
+    public static string PathRemoveTrailingSlash(this string path)
+    {
+        if (Tools.isWindows())
+            return path.Last() == '\\' ? path.Remove(path.LastIndexOf(@"\"), 1) : path;
+        else
+            return path.Last() == '/' ? path.Remove(path.LastIndexOf(@"/"), 1) : path;
+    }
+
+    public static string RemoveWhitespace(this string text)
+    {
+        return new string(text.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
+    }
 }
