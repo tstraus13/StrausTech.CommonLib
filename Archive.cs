@@ -86,7 +86,7 @@ public static class Archive
                 // The unpacked length is available in the zipEntry.Size property.
 
                 // Manipulate the output filename here as desired.
-                var fullZipToPath = Path.Combine(Tools.PathRemoveTrailingSlash(targetDir), entryFileName);
+                var fullZipToPath = Path.Combine(targetDir.PathRemoveTrailingSlash(), entryFileName);
                 var directoryName = Path.GetDirectoryName(fullZipToPath);
                 if (!Directory.Exists(directoryName))
                 {

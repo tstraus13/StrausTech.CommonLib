@@ -27,7 +27,7 @@ public class Sftp
     public string LocalPath
     {
         get { return localPath; }
-        set { localPath = Tools.PathRemoveTrailingSlash(value); }
+        set { localPath = value.PathRemoveTrailingSlash(); }
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class Sftp
     public string RemotePath
     {
         get { return remotePath; }
-        set { remotePath = Tools.PathRemoveTrailingSlash(value); }
+        set { remotePath = value.PathRemoveTrailingSlash(); }
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ public class Sftp
     public string PrivateKeyFile
     {
         get { return privateKeyFile; }
-        set { privateKeyFile = Tools.PathRemoveTrailingSlash(value); }
+        set { privateKeyFile = value.PathRemoveTrailingSlash(); }
     }
 
     /// <summary>

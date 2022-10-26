@@ -1,4 +1,5 @@
 using FluentFTP;
+using FluentFTP.Client.BaseClient;
 
 namespace StrausTech.CommonLib;
 
@@ -63,8 +64,8 @@ public class Ftp
     /// </summary>
     public int RetryAttempts
     {
-        get { return client.RetryAttempts; }
-        set { client.RetryAttempts = value; }
+        get { return client.Config.RetryAttempts; }
+        set { client.Config.RetryAttempts = value; }
     }
 
     /// <summary>
@@ -73,7 +74,7 @@ public class Ftp
     public string LocalPath
     {
         get { return localPath; }
-        set { localPath = Tools.PathRemoveTrailingSlash(value); }
+        set { localPath = value.PathRemoveTrailingSlash(); }
     }
 
     /// <summary>
@@ -88,7 +89,7 @@ public class Ftp
     public string RemotePath
     {
         get { return remotePath; }
-        set { remotePath = Tools.PathRemoveTrailingSlash(value); }
+        set { remotePath = value.PathRemoveTrailingSlash(); }
     }
 
     /// <summary>
@@ -102,8 +103,8 @@ public class Ftp
     /// </summary>
     public EncryptionModes EncryptionMode
     {
-        get { return (EncryptionModes) client.EncryptionMode; }
-        set { client.EncryptionMode = (FtpEncryptionMode) value; }
+        get { return (EncryptionModes) client.Config.EncryptionMode; }
+        set { client.Config.EncryptionMode = (FtpEncryptionMode) value; }
     }
     
     /// <summary>
@@ -261,7 +262,7 @@ public class Ftp
     /// </summary>
     /// <param name="control">The FTP client</param>
     /// <param name="e">FTP SSL Validtion Event arguments</param>
-    private void OnValidateCert(FtpClient control, FtpSslValidationEventArgs e)
+    private void OnValidateCert(BaseFtpClient control, FtpSslValidationEventArgs e)
     {
         e.Accept = true;
     }
